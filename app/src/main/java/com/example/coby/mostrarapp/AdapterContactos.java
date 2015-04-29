@@ -39,7 +39,7 @@ public class AdapterContactos extends ArrayAdapter<String> {
         TextView telefono = (TextView) vistaDesdeXML.findViewById(R.id.telefono);
 
         nombre.setText(datos[position][0]);
-        telefono.setText(datos[position][1]);
+        telefono.setText("Tel: " + datos[position][1]);
         return vistaDesdeXML;
     }
 }

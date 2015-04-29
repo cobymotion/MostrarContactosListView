@@ -1,11 +1,23 @@
 package com.example.coby.mostrarapp;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 
 public class ListaContactos extends ActionBarActivity {
@@ -14,8 +26,28 @@ public class ListaContactos extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_contactos);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
+        toolbar.setTitle("Usuarios de la libreta");
+        Bitmap nuevo = BitmapFactory.decodeResource(getResources(),R.drawable.usuario);
+        Bitmap resized = Bitmap.createScaledBitmap(nuevo, 56, 56, true);
+        Drawable logo = new BitmapDrawable(getResources(),resized);
+        toolbar.setLogo(logo);
+        setSupportActionBar(toolbar);
         String[][] datos={{"Pepe","000020"},{"Pepe","000020"},{"Pepe","000020"}};
         mostrarEnLista(datos);
+        FloatingActionButton boton = (FloatingActionButton)findViewById(R.id.boton_flota);
+        boton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Toast.makeText(ListaContactos.this,"Presiono",Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
+    }
+
+    public void hacer(View v)
+    {
+        Toast.makeText(ListaContactos.this,"Presiono",Toast.LENGTH_LONG).show();
     }
 
     private void mostrarEnLista(String[][] datos){
