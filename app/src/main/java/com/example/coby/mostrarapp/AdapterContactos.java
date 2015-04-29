@@ -31,7 +31,8 @@ public class AdapterContactos extends ArrayAdapter<String> {
     // Metodo encargado de crear la vista personalizada que sera regresada a nuestro ListView
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflador = (LayoutInflater) contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflador = (LayoutInflater) contexto.getSystemService
+                (Context.LAYOUT_INFLATER_SERVICE);
 
         View vistaDesdeXML = inflador.inflate(R.layout.vista_contactos, parent, false);
 
